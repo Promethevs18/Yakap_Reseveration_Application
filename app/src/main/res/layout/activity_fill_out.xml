@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fill_Out"
+    android:background="#FFFFFF">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:paddingBottom="15dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="56dp">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:hintAnimationEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/full_name"
+                style="@style/Custom_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="FULL NAME:"
+                tools:ignore="HardcodedText" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addressInputLayout"
+            style="@style/Custom_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/nameInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/nameInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/address"
+                style="@style/Custom_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="ADDRESS:" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/addressInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addressInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone_num"
+                style="@style/Custom_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="PHONE NUMBER:"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/phoneInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                style="@style/Custom_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="EMAIL:"
+                android:inputType="text|textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:text="Person with Disability?"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="@+id/emailInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/emailInputLayout" />
+
+        <RadioGroup
+            android:id="@+id/pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+            <RadioButton
+                android:id="@+id/Yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="Yes"
+                android:textColor="#000000" />
+
+            <RadioButton
+                android:id="@+id/No"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:textColor="#000000" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/upload_pwd_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Attach PWD ID"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/pwd"
+            app:layout_constraintStart_toEndOf="@+id/pwd"
+            app:layout_constraintTop_toTopOf="@+id/pwd" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:text="Seat Section"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="@+id/pwd"
+            app:layout_constraintTop_toBottomOf="@+id/pwd" />
+
+        <Spinner
+            android:id="@+id/sections"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:minHeight="48dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="@+id/textView13"
+            app:layout_constraintStart_toStartOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:text="Number of tickets:"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/textView14"
+            app:layout_constraintEnd_toEndOf="@+id/emailInputLayout"
+            app:layout_constraintTop_toTopOf="@+id/textView14" />
+
+        <EditText
+            android:id="@+id/tickets"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Enter number"
+            android:inputType="number"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/textView15"
+            app:layout_constraintStart_toStartOf="@+id/textView15"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:text="Mode of Payment:"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="@+id/sections"
+            app:layout_constraintTop_toBottomOf="@+id/sections" />
+
+        <RadioGroup
+            android:id="@+id/payments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="@+id/textView16"
+            app:layout_constraintTop_toBottomOf="@+id/textView16">
+
+            <RadioButton
+                android:id="@+id/Gcash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GCash" />
+
+            <RadioButton
+                android:id="@+id/Maya"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maya" />
+
+            <RadioButton
+                android:id="@+id/Others"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Others" />
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/othersInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/payments"
+            app:layout_constraintEnd_toEndOf="@+id/tickets"
+            app:layout_constraintStart_toEndOf="@+id/payments">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/other_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Please Specify" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:text="Proof of payment:"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="@+id/payments"
+            app:layout_constraintTop_toBottomOf="@+id/payments" />
+
+        <Button
+            android:id="@+id/attachResibo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Attach Receipt:"
+            app:layout_constraintStart_toStartOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/transactInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/tickets"
+            app:layout_constraintStart_toStartOf="@+id/attachResibo"
+            app:layout_constraintTop_toBottomOf="@+id/attachResibo">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/transactionNum"
+                style="@style/Custom_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="TRANSACTION NUMBER" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/submit"
+            style="@style/Custom_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:text="Submit information"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactInputLayout" />
+
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="16dp"
+            android:foregroundGravity="center"
+            android:scaleType="fitCenter"
+            android:src="@drawable/yakap_2"
+            app:layout_constraintEnd_toEndOf="@+id/submit"
+            app:layout_constraintStart_toStartOf="@+id/submit"
+            app:layout_constraintTop_toBottomOf="@+id/submit" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="2pm | December 10, 2023 \n FilOil EcoOil Center (Flying V Arena)\n San Juan, Manila"
+            android:textColor="#000000"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+        <Button
+            android:id="@+id/total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show total cost"
+            app:layout_constraintBottom_toBottomOf="@+id/payments"
+            app:layout_constraintEnd_toEndOf="@+id/tickets"
+            app:layout_constraintStart_toStartOf="@+id/tickets"
+            app:layout_constraintTop_toTopOf="@+id/payments" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

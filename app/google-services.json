@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "966287741955",
+    "project_id": "yakap-ticketing-system",
+    "storage_bucket": "yakap-ticketing-system.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966287741955:android:1df9d0c3f2f78d5b6faa36",
+        "android_client_info": {
+          "package_name": "com.reservation.yakapreseverationapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "966287741955-eh20lshb893btpu0u8o7nkm7ctatj6qs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmJEs0DnG1pOonZLhsQVL17X0L1kNTsks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "966287741955-eh20lshb893btpu0u8o7nkm7ctatj6qs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

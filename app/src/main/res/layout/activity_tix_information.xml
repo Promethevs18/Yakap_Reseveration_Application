@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Tix_Information"
+    android:background="#FFFFFF">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+
+        <ImageView
+            android:id="@+id/seats"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/seats"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#F2E1FF "
+            android:fontFamily="@font/montserrat_extrabold"
+            android:gravity="center"
+            android:text="VIP 3000"
+            android:textColor="#44116C"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/seats"
+            app:layout_constraintStart_toStartOf="@+id/seats"
+            app:layout_constraintTop_toBottomOf="@+id/seats" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:background=" #EACEFF"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:gravity="center"
+            android:text="LB 2500"
+            android:textColor="#44116C"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/vip_num" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:background="#F2E1FF "
+            android:fontFamily="@font/montserrat_extrabold"
+            android:gravity="center"
+            android:text="UPB 2500"
+            android:textColor="#44116C"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView2"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/lb_num" />
+
+        <Button
+            android:id="@+id/bili"
+            style="@style/Custom_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="BUY TICKETS"
+            app:layout_constraintEnd_toEndOf="@+id/seats"
+            app:layout_constraintStart_toStartOf="@+id/seats"
+            app:layout_constraintTop_toBottomOf="@+id/upb_num" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="Note: The seating arrangement is on \na first come, first served basis"
+            android:textColor=" #44116C"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/bili"
+            app:layout_constraintStart_toStartOf="@+id/bili"
+            app:layout_constraintTop_toBottomOf="@+id/bili" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="After purchase, you will be given a \nqueue number and a QR code for seat\nnumber and purchase confirmation"
+            android:textColor=" #44116C"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView10"
+            app:layout_constraintStart_toStartOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="Seat availability per tier may vary"
+            android:textColor=" #44116C"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView11"
+            app:layout_constraintStart_toStartOf="@+id/textView11"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/likod"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#805F5C5C"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/pinalaki"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:src="@drawable/seats"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/vip_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="#F2E1FF "
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="#44116C"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/lb_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:background="#F2E1FF "
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:textColor="#44116C"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView2"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/upb_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:background="#F2E1FF "
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:textColor="#44116C"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView3"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
