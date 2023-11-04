@@ -199,7 +199,7 @@ public class Home_Page extends AppCompatActivity {
         if(user != null){
             SharedPreferences getShared = getSharedPreferences("User Data", MODE_PRIVATE);
             if(getShared.getBoolean("Uploaded", false)){
-                Intent goNext = new Intent(Home_Page.this, Fill_Out.class);
+                Intent goNext = new Intent(Home_Page.this, Tix_Information.class);
                 startActivity(goNext);
             }
         }
