@@ -26,8 +26,7 @@ public class Tix_Information extends AppCompatActivity {
 
     //UI elements
     Button purchase;
-    ImageView upuan, pinalaki;
-    ConstraintLayout likod;
+    ImageView upuan;
     TextView vip, lb, upb;
 
     //Firebase Cloud Firestore
@@ -40,8 +39,6 @@ public class Tix_Information extends AppCompatActivity {
         //Initialize UI elements
         purchase = findViewById(R.id.bili);
         upuan = findViewById(R.id.seats);
-        pinalaki = findViewById(R.id.pinalaki);
-        likod = findViewById(R.id.likod);
 
         vip = findViewById(R.id.vip_num);
         lb = findViewById(R.id.lb_num);
@@ -50,64 +47,6 @@ public class Tix_Information extends AppCompatActivity {
 
         //Initialize Firestore elements
         seats_ref = FirebaseFirestore.getInstance().collection("Seat Variations").document("Seat Classes");
-        upuan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                // Start with the thumbnail's bounds.
-                Rect startBounds = new Rect();
-                upuan.getGlobalVisibleRect(startBounds);
-
-                // Set up the enlarged image's bounds.
-                Rect finalBounds = new Rect();
-                finalBounds.right = pinalaki.getWidth();
-                finalBounds.bottom = pinalaki.getHeight();
-
-                // Set the start and final scale factors for the animation.
-                float startScaleX = (float) startBounds.width() / finalBounds.width();
-                float startScaleY = (float) startBounds.height() / finalBounds.height();
-
-                // Create and start the zoom animation.
-                AnimationSet set = new AnimationSet(true);
-                set.addAnimation(new ScaleAnimation(startScaleX, 1, startScaleY, 1,
-                        startBounds.exactCenterX(), startBounds.exactCenterY()));
-                set.setDuration(200); // Adjust the duration as needed.
-                pinalaki.startAnimation(set);
-
-                // Make the enlarged image visible and remove the thumbnail.
-                likod.setVisibility(View.VISIBLE);
-                pinalaki.setVisibility(View.VISIBLE);
-            }
-        });
-
-        pinalaki.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Start with the thumbnail's bounds.
-                Rect startBounds = new Rect();
-                upuan.getGlobalVisibleRect(startBounds);
-
-                // Set up the enlarged image's bounds.
-                Rect finalBounds = new Rect();
-                finalBounds.right = pinalaki.getWidth();
-                finalBounds.bottom = pinalaki.getHeight();
-
-                // Set the start and final scale factors for the animation.
-                float startScaleX = (float) startBounds.width() / finalBounds.width();
-                float startScaleY = (float) startBounds.height() / finalBounds.height();
-
-                // Create and start the reverse zoom animation.
-                AnimationSet set = new AnimationSet(true);
-                set.addAnimation(new ScaleAnimation(1, 1 / startScaleX, 1, 1 / startScaleY,
-                        pinalaki.getWidth() >> 1, pinalaki.getHeight() >> 2));
-                set.setDuration(200); // Adjust the duration as needed.
-                pinalaki.startAnimation(set);
-
-                // Make the thumbnail visible and remove the enlarged image.
-                likod.setVisibility(View.GONE);
-                pinalaki.setVisibility(View.GONE);
-            }
-        });
 
         purchase.setOnClickListener(new View.OnClickListener() {
             @Override

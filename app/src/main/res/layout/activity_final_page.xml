@@ -21,7 +21,8 @@
             android:src="@drawable/heartlogo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:importantForAccessibility="no" />
 
         <TextView
             android:id="@+id/textView18"
@@ -34,7 +35,8 @@
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="@+id/qrCode"
             app:layout_constraintStart_toStartOf="@+id/qrCode"
-            app:layout_constraintTop_toBottomOf="@+id/qrCode" />
+            app:layout_constraintTop_toBottomOf="@+id/qrCode"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/textView19"
@@ -48,7 +50,8 @@
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="@+id/qrCode"
             app:layout_constraintStart_toStartOf="@+id/qrCode"
-            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+            app:layout_constraintTop_toBottomOf="@+id/textView18"
+            tools:ignore="HardcodedText,SmallSp" />
 
         <TextView
             android:id="@+id/textView20"
@@ -62,27 +65,32 @@
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="@+id/textView19"
             app:layout_constraintStart_toStartOf="@+id/textView19"
-            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+            app:layout_constraintTop_toBottomOf="@+id/textView19"
+            tools:ignore="HardcodedText,SmallSp" />
 
         <Button
             android:id="@+id/goBack"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:minHeight="48dp"
             android:text="Return to Main Menu"
             app:layout_constraintEnd_toEndOf="@+id/textView19"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView19"
-            app:layout_constraintTop_toBottomOf="@+id/screenShot" />
+            app:layout_constraintTop_toBottomOf="@+id/screenShot"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/screenShot"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:minHeight="48dp"
             android:text="Save a screenshot"
             app:layout_constraintEnd_toEndOf="@+id/textView19"
             app:layout_constraintStart_toStartOf="@+id/textView19"
-            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            app:layout_constraintTop_toBottomOf="@+id/textView20"
+            tools:ignore="HardcodedText" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

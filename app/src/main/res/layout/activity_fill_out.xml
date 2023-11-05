@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:hintAnimationEnabled="true"
+            style="@style/Custom_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -32,6 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="FULL NAME:"
+                android:textColor="@color/lavender"
                 tools:ignore="HardcodedText" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,6 +52,7 @@
                 style="@style/Custom_hint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/lavender"
                 android:hint="ADDRESS:" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,6 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            style="@style/Custom_hint"
             app:layout_constraintEnd_toEndOf="@+id/addressInputLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addressInputLayout">
@@ -68,6 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="PHONE NUMBER:"
+                android:textColor="@color/lavender"
                 android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,6 +80,7 @@
             android:id="@+id/emailInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/Custom_hint"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="@+id/phoneInputLayout"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,6 +90,7 @@
                 android:id="@+id/email"
                 style="@style/Custom_hint"
                 android:layout_width="match_parent"
+                android:textColor="@color/lavender"
                 android:layout_height="wrap_content"
                 android:hint="EMAIL:"
                 android:inputType="text|textEmailAddress" />
@@ -118,14 +125,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:text="Yes"
-                android:textColor="#000000" />
+                android:textColor="@color/lavender" />
 
             <RadioButton
                 android:id="@+id/No"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="No"
-                android:textColor="#000000" />
+                android:textColor="@color/lavender" />
 
         </RadioGroup>
 
@@ -158,6 +165,7 @@
             android:layout_marginTop="8dp"
             android:minHeight="48dp"
             android:spinnerMode="dropdown"
+            style="@style/custom_spinner_text"
             app:layout_constraintEnd_toEndOf="@+id/textView13"
             app:layout_constraintStart_toStartOf="@+id/textView14"
             app:layout_constraintTop_toBottomOf="@+id/textView14" />
@@ -181,6 +189,7 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Enter number"
+            android:textColor="@color/lavender"
             android:inputType="number"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="@+id/textView15"
@@ -211,43 +220,52 @@
                 android:id="@+id/Gcash"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="GCash" />
+                android:text="GCash"
+                android:textColor="@color/lavender"/>
 
             <RadioButton
                 android:id="@+id/Maya"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Maya" />
+                android:text="Maya"
+                android:textColor="@color/lavender"/>
 
             <RadioButton
                 android:id="@+id/Others"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Others" />
+                android:text="Others"
+                android:textColor="@color/lavender"/>
+
         </RadioGroup>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/othersInputLayout"
+            style="@style/Custom_hint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/payments"
             app:layout_constraintEnd_toEndOf="@+id/tickets"
-            app:layout_constraintStart_toEndOf="@+id/payments">
+            app:layout_constraintStart_toEndOf="@+id/payments"
+            app:layout_constraintTop_toBottomOf="@+id/total_price">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/other_options"
+                style="@style/custom_spinner_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Please Specify" />
+                android:hint="Please Specify"
+                android:textColor="@color/lavender" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/montserrat_extrabold"
             android:text="Proof of payment:"
             android:textColor="#000000"
@@ -256,6 +274,7 @@
 
         <Button
             android:id="@+id/attachResibo"
+            style="@style/Custom_small_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Attach Receipt:"
@@ -267,6 +286,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            style="@style/Custom_hint"
             app:layout_constraintEnd_toEndOf="@+id/tickets"
             app:layout_constraintStart_toStartOf="@+id/attachResibo"
             app:layout_constraintTop_toBottomOf="@+id/attachResibo">
@@ -321,6 +341,7 @@
 
         <Button
             android:id="@+id/total_price"
+            style="@style/Custom_small_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Show total cost"

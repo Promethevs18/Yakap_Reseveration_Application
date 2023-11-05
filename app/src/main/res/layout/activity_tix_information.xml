@@ -20,10 +20,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
+            android:contentDescription="@string/todo"
             android:src="@drawable/seats"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/textView"
@@ -33,21 +35,22 @@
             android:background="#F2E1FF "
             android:fontFamily="@font/montserrat_extrabold"
             android:gravity="center"
-            android:text="VIP 3000"
+            android:text="@string/vip_3000"
             android:textColor="#44116C"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/seats"
             app:layout_constraintStart_toStartOf="@+id/seats"
-            app:layout_constraintTop_toBottomOf="@+id/seats" />
+            app:layout_constraintTop_toBottomOf="@+id/seats"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="110dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background=" #EACEFF"
             android:fontFamily="@font/montserrat_extrabold"
             android:gravity="center"
-            android:text="LB 2500"
+            android:text="@string/lb_2500"
             android:textColor="#44116C"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/textView"
@@ -61,12 +64,13 @@
             android:background="#F2E1FF "
             android:fontFamily="@font/montserrat_extrabold"
             android:gravity="center"
-            android:text="UPB 2500"
+            android:text="@string/upb_2500"
             android:textColor="#44116C"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/textView2"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/lb_num" />
+            app:layout_constraintStart_toStartOf="@+id/lb_num"
+            app:layout_constraintTop_toBottomOf="@+id/lb_num"
+            tools:ignore="TextSizeCheck" />
 
         <Button
             android:id="@+id/bili"
@@ -74,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="BUY TICKETS"
+            android:text="@string/buy_tickets"
             app:layout_constraintEnd_toEndOf="@+id/seats"
             app:layout_constraintStart_toStartOf="@+id/seats"
             app:layout_constraintTop_toBottomOf="@+id/upb_num" />
@@ -86,9 +90,9 @@
             android:layout_marginTop="24dp"
             android:fontFamily="@font/montserrat_medium"
             android:gravity="center"
-            android:text="Note: The seating arrangement is on \na first come, first served basis"
+            android:text="@string/note_the_seating_arrangement_is_on_na_first_come_first_served_basis"
             android:textColor=" #44116C"
-            android:textSize="10sp"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="@+id/bili"
             app:layout_constraintStart_toStartOf="@+id/bili"
             app:layout_constraintTop_toBottomOf="@+id/bili" />
@@ -100,9 +104,9 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat_medium"
             android:gravity="center"
-            android:text="After purchase, you will be given a \nqueue number and a QR code for seat\nnumber and purchase confirmation"
+            android:text="@string/after_purchase_you_will_be_given_a_nqueue_number_and_a_qr_code_for_seat_nnumber_and_purchase_confirmation"
             android:textColor=" #44116C"
-            android:textSize="10sp"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="@+id/textView10"
             app:layout_constraintStart_toStartOf="@+id/textView10"
             app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -114,34 +118,12 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat_medium"
             android:gravity="center"
-            android:text="Seat availability per tier may vary"
+            android:text="@string/seat_availability_per_tier_may_vary"
             android:textColor=" #44116C"
-            android:textSize="10sp"
+            android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="@+id/textView11"
             app:layout_constraintStart_toStartOf="@+id/textView11"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/likod"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="#805F5C5C"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/pinalaki"
-                android:layout_width="350dp"
-                android:layout_height="350dp"
-                android:src="@drawable/seats"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/vip_num"
@@ -157,13 +139,14 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/lb_num"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/textview"
             android:background="#F2E1FF "
             android:fontFamily="@font/montserrat_medium"
             android:gravity="center"
@@ -187,7 +170,8 @@
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/textView3"
             app:layout_constraintStart_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            tools:ignore="HardcodedText" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

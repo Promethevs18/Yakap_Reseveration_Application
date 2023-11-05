@@ -25,10 +25,10 @@
             android:name=".Fill_Out"
             android:exported="false" />
         <activity
-            android:name=".Home_Page"
+            android:name=".Splash"
             android:exported="false" />
         <activity
-            android:name=".Splash"
+            android:name=".Home_Page"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

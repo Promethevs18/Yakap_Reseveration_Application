@@ -20,10 +20,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
+            android:importantForAccessibility="no"
             android:src="@drawable/seats"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -34,7 +36,8 @@
             android:src="@drawable/yakap_2"
             app:layout_constraintEnd_toEndOf="@+id/poster"
             app:layout_constraintStart_toStartOf="@+id/poster"
-            app:layout_constraintTop_toBottomOf="@+id/poster" />
+            app:layout_constraintTop_toBottomOf="@+id/poster"
+            android:importantForAccessibility="no" />
 
         <TextView
             android:id="@+id/textView"
@@ -46,7 +49,8 @@
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/imageView5"
             app:layout_constraintStart_toStartOf="@+id/imageView5"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/textView2"
@@ -58,7 +62,8 @@
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/textView3"
@@ -70,7 +75,8 @@
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/textView2"
             app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/textView5"
@@ -84,7 +90,8 @@
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="@+id/imageView5"
             app:layout_constraintStart_toStartOf="@+id/imageView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            tools:ignore="HardcodedText,SmallSp" />
 
         <Button
             android:id="@+id/bili"
@@ -92,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="REGISTER"
+            android:text="@string/register"
             app:layout_constraintEnd_toEndOf="@+id/imageView5"
             app:layout_constraintStart_toStartOf="@+id/imageView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -109,7 +116,8 @@
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="@+id/bili"
             app:layout_constraintStart_toStartOf="@+id/bili"
-            app:layout_constraintTop_toBottomOf="@+id/bili" />
+            app:layout_constraintTop_toBottomOf="@+id/bili"
+            tools:ignore="HardcodedText,SmallSp" />
 
 
         <ImageView
@@ -120,7 +128,8 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/textView6"
-            app:srcCompat="@drawable/youutbe" />
+            app:srcCompat="@drawable/youutbe"
+            android:importantForAccessibility="no" />
 
         <TextView
             android:id="@+id/mygz_yt"
@@ -135,7 +144,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView7"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintStart_toEndOf="@+id/imageView7"
-            app:layout_constraintTop_toTopOf="@+id/imageView7" />
+            app:layout_constraintTop_toTopOf="@+id/imageView7"
+            tools:ignore="HardcodedText,SmallSp" />
 
         <ImageView
             android:id="@+id/imageView8"
@@ -145,7 +155,8 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/mygz_yt"
-            app:srcCompat="@drawable/fb" />
+            app:srcCompat="@drawable/fb"
+            android:importantForAccessibility="no" />
 
         <TextView
             android:id="@+id/mygz_fb"
@@ -160,7 +171,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView8"
             app:layout_constraintEnd_toEndOf="@+id/mygz_yt"
             app:layout_constraintStart_toEndOf="@+id/imageView8"
-            app:layout_constraintTop_toTopOf="@+id/imageView8" />
+            app:layout_constraintTop_toTopOf="@+id/imageView8"
+            tools:ignore="HardcodedText,SmallSp" />
 
 
         <ImageView
@@ -171,7 +183,8 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/mygz_fb"
-            app:srcCompat="@drawable/insta" />
+            app:srcCompat="@drawable/insta"
+            android:importantForAccessibility="no" />
 
         <TextView
             android:id="@+id/mygz_ig"
@@ -186,7 +199,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView9"
             app:layout_constraintEnd_toEndOf="@+id/mygz_fb"
             app:layout_constraintStart_toEndOf="@+id/imageView9"
-            app:layout_constraintTop_toTopOf="@+id/imageView9" />
+            app:layout_constraintTop_toTopOf="@+id/imageView9"
+            tools:ignore="HardcodedText,SmallSp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -214,7 +228,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:importantForAccessibility="no" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

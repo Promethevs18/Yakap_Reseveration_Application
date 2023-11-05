@@ -13,6 +13,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -77,6 +78,7 @@ public class Fill_Out extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fill_out);
+        try{
         //SET UI ELEMENTS
         //TextInputLayouts
         nameLayout = findViewById(R.id.nameInputLayout);
@@ -118,7 +120,6 @@ public class Fill_Out extends AppCompatActivity {
 
 
         //BELOW IS WHERE THE MAGIC HAPPENS
-
 
         //Radio Button for the pwd
         pwd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -224,106 +225,87 @@ public class Fill_Out extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                ProgressDialog pd = new ProgressDialog(Fill_Out.this);
-                pd.setTitle("Uploading information");
-                pd.setMessage("Sending your secret information to our secret database...");
-                pd.show();
-                boolean hasError = false;
-
-                if (Objects.requireNonNull(fullName.getText()).toString().isEmpty()) {
+                if(Objects.requireNonNull(fullName.getText()).toString().isEmpty() && Objects.requireNonNull(address.getText()).toString().isEmpty() && 
+                        Objects.requireNonNull(phoneNum.getText()).toString().isEmpty() && Objects.requireNonNull(email.getText()).toString().isEmpty() && 
+                        ticketsNum.getText().toString().isEmpty() && Objects.requireNonNull(transactionNum.getText()).toString().isEmpty() && TextUtils.isEmpty(ticketsNum.getText().toString())
+                        && Objects.equals(seatCount, ""))
+                {
                     nameLayout.setError("Name is required");
-                    hasError = true;
-                }
-
-                if (Objects.requireNonNull(address.getText()).toString().isEmpty()) {
                     addressLayout.setError("Address is required");
-                    hasError = true;
-                }
-
-                if (Objects.requireNonNull(phoneNum.getText()).toString().isEmpty()) {
                     phoneLayout.setError("Phone number is required");
-                    hasError = true;
-                }
-
-                if (Objects.requireNonNull(email.getText()).toString().isEmpty()) {
                     emailLayout.setError("Email is required");
-                    hasError = true;
-                }
-
-                if (ticketsNum.getText().toString().isEmpty()) {
                     ticketsNum.setError("Number of tickets is required");
-                    hasError = true;
-                }
-
-                if (Objects.requireNonNull(transactionNum.getText()).toString().isEmpty()) {
                     transactionLayout.setError("Transaction number is required");
-                    hasError = true;
+                    ticketsNum.setError("Ticket number is required and select a seating");
+                    Toast.makeText(Fill_Out.this, "Some information is lacking. Kindly review your form", Toast.LENGTH_SHORT).show();
+                   
                 }
-                if (hasError && methods.getText().toString().isEmpty()  && sectionSelected.equals("") && pwdOption.equals("") && receiptLink.equals("")) {
-                    AlertDialog.Builder build = new AlertDialog.Builder(Fill_Out.this);
-                    build.setTitle("Warning");
-                    build.setMessage("Some required fields are still missing. Kindly review your form before submitting");
-                    build.setIcon(R.drawable.warning);
-                    build.setCancelable(true);
-                    build.show();
-                }
-
-                else {
-                    if(Integer.parseInt(ticketsNum.getText().toString()) > Integer.parseInt(seatCount)){
-                        pd.dismiss();
-                        AlertDialog.Builder tooMuch = new AlertDialog.Builder(Fill_Out.this);
-                        tooMuch.setTitle("Number of tickets exceeds");
-                        tooMuch.setMessage("Your number of tickets exceeds the seats left for this section. Try to lower your purchase, or try a different section");
-                        tooMuch.setIcon(R.drawable.warning);
-                        tooMuch.setCancelable(true);
-                        tooMuch.show();
-
+                else{
+                    if (TextUtils.isEmpty(ticketsNum.getText().toString())) {
+                        ticketsNum.setError("Ticket number is required and select a seating");
+                        Toast.makeText(Fill_Out.this, "Number of tickets is required", Toast.LENGTH_SHORT).show();
                     }
-                    else {
-                        int ticketsLeft =  Integer.parseInt(seatCount) - Integer.parseInt( ticketsNum.getText().toString());
-                        seats.update(sectionSelected, ticketsLeft);
+                    else{
+                        int numTickets = Integer.parseInt(ticketsNum.getText().toString());
+                        if (numTickets > Integer.parseInt(seatCount)) {
+                            AlertDialog.Builder tooMuch = new AlertDialog.Builder(Fill_Out.this);
+                            tooMuch.setTitle("Number of tickets exceeds");
+                            tooMuch.setMessage("Your number of tickets exceeds the seats left for this section. Try to lower your purchase or try a different section");
+                            tooMuch.setIcon(R.drawable.warning);
+                            tooMuch.setCancelable(true);
+                            tooMuch.show();
+                        }
+                        else{
+                            ProgressDialog pd = new ProgressDialog(Fill_Out.this);
+                            pd.setTitle("Uploading information");
+                            pd.setMessage("Sending your secret information to our secret database...");
+                            pd.show();
 
-                        HashMap<String, Object> infoMap = new HashMap<>();
+                            int ticketsLeft =  Integer.parseInt(seatCount) - Integer.parseInt( ticketsNum.getText().toString());
+                            seats.update(sectionSelected, ticketsLeft);
 
-                        infoMap.put("fullName", fullName.getText().toString());
-                        infoMap.put("address", address.getText().toString());
-                        infoMap.put("phoneNum", phoneNum.getText().toString());
-                        infoMap.put("email", email.getText().toString());
-                        infoMap.put("pwd", pwdOption);
-                        infoMap.put("section", sectionSelected);
-                        infoMap.put("ticketsBought", ticketsNum.getText().toString());
-                        infoMap.put("paymentMode", Objects.requireNonNull(methods.getText()).toString());
-                        infoMap.put("transactNo", transactionNum.getText().toString());
-                        infoMap.put("receiptLink", receiptLink);
-                        infoMap.put("pwdIdLink", pwdIDLink);
-                        infoMap.put("totalPrice", totalCost);
+                            HashMap<String, Object> infoMap = new HashMap<>();
+
+                            infoMap.put("fullName", fullName.getText().toString());
+                            infoMap.put("address", address.getText().toString());
+                            infoMap.put("phoneNum", phoneNum.getText().toString());
+                            infoMap.put("email", email.getText().toString());
+                            infoMap.put("pwd", pwdOption);
+                            infoMap.put("section", sectionSelected);
+                            infoMap.put("ticketsBought", ticketsNum.getText().toString());
+                            infoMap.put("paymentMode", Objects.requireNonNull(methods.getText()).toString());
+                            infoMap.put("transactNo", transactionNum.getText().toString());
+                            infoMap.put("receiptLink", receiptLink);
+                            infoMap.put("pwdIdLink", pwdIDLink);
+                            infoMap.put("totalPrice", totalCost);
 
 
-                        info = FirebaseFirestore.getInstance().collection(sectionSelected);
-                        info.document(fullName.getText().toString()).set(infoMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                writeToSharedPreferences(fullName.getText().toString(), sectionSelected);
-                                pd.dismiss();
-                                AlertDialog.Builder notif = new AlertDialog.Builder(Fill_Out.this);
-                                notif.setTitle("Information Saved!");
-                                notif.setMessage("Your information has been saved to our database. Our team will look into your data submitted for verification\nClick on the button to close this message");
-                                notif.setIcon(R.drawable.approved);
-                                notif.setPositiveButton("Close", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        Intent goFinal = new Intent(Fill_Out.this, Final_Page.class);
-                                        goFinal.putExtra("name", fullName.getText().toString());
-                                        startActivity(goFinal);
-                                        Fill_Out.this.finish();
-                                        dialog.dismiss();
-                                    }
-                                });
-                                notif.show();
-                            }
-                        });
+                            info = FirebaseFirestore.getInstance().collection(sectionSelected);
+                            info.document(fullName.getText().toString()).set(infoMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    writeToSharedPreferences(fullName.getText().toString(), sectionSelected);
+                                    pd.dismiss();
+                                    AlertDialog.Builder notif = new AlertDialog.Builder(Fill_Out.this);
+                                    notif.setTitle("Information Saved!");
+                                    notif.setMessage("Your information has been saved to our database. Our team will look into your data submitted for verification\nClick on the button to close this message");
+                                    notif.setIcon(R.drawable.approved);
+                                    notif.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Intent goFinal = new Intent(Fill_Out.this, Final_Page.class);
+                                            goFinal.putExtra("name", fullName.getText().toString());
+                                            startActivity(goFinal);
+                                            Fill_Out.this.finish();
+                                            dialog.dismiss();
+                                        }
+                                    });
+                                    notif.show();
+                                }
+                            });
+                        }
                     }
+
                 }
 
             }
@@ -335,32 +317,45 @@ public class Fill_Out extends AppCompatActivity {
             public void onClick(View v) {
                 AlertDialog.Builder showPrice = new AlertDialog.Builder(Fill_Out.this);
                 if(pwdIDLink.isEmpty() || pwdIDLink.contentEquals("")){
-                    totalCost = seat_price * Double.parseDouble(ticketsNum.getText().toString());
-                    showPrice.setTitle("Total cost of tickets");
-                    showPrice.setMessage("Your ticket breakdown is:\n\t"
-                            + sectionSelected + " = " + seat_price + " pesos"
-                            + "\n\tNumber of tickets acquired: "+ ticketsNum.getText().toString()
-                            + "\n\tTotal cost = " + totalCost +"\n\n"
-                            + "Click anywhere to close this window");
-                    showPrice.setCancelable(true);
-
+                    if(TextUtils.isEmpty(ticketsNum.getText().toString())){
+                        Toast.makeText(Fill_Out.this, "Ticket quantity invalid", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        totalCost = seat_price * Double.parseDouble(ticketsNum.getText().toString());
+                        showPrice.setTitle("Total cost of tickets");
+                        showPrice.setMessage("Your ticket breakdown is:\n\t"
+                                + sectionSelected + " = " + seat_price + " pesos"
+                                + "\n\tNumber of tickets acquired: "+ ticketsNum.getText().toString()
+                                + "\n\tTotal cost = " + totalCost +"\n\n"
+                                + "Click anywhere to close this window");
+                        showPrice.setCancelable(true);
+                        showPrice.show();
+                    }
                 }
-                else{
-                    discountedCost = (seat_price * Double.parseDouble(ticketsNum.getText().toString())) * pwdDiscount;
-                    totalCost = (seat_price * Double.parseDouble(ticketsNum.getText().toString())) - discountedCost;
-                    showPrice.setTitle("Total cost of tickets");
-                    showPrice.setMessage("Your ticket breakdown is:\n\t"
-                            + sectionSelected + " = " + seat_price + " pesos"
-                            + "\n\tNumber of tickets acquired: "+ ticketsNum.getText().toString()
-                            + "\n\tPWD Discount cost = " + discountedCost
-                            + "\n\tTotal cost = " + totalCost
-                            +"\n\n"
-                            + "Click anywhere to close this window");
-                    showPrice.setCancelable(true);
+                else {
+                    if (TextUtils.isEmpty(ticketsNum.getText().toString())) {
+                        Toast.makeText(Fill_Out.this, "Ticket quantity invalid", Toast.LENGTH_SHORT).show();
+                    } else {
+                        discountedCost = (seat_price * Double.parseDouble(ticketsNum.getText().toString())) * pwdDiscount;
+                        totalCost = (seat_price * Double.parseDouble(ticketsNum.getText().toString())) - discountedCost;
+                        showPrice.setTitle("Total cost of tickets");
+                        showPrice.setMessage("Your ticket breakdown is:\n\t"
+                                + sectionSelected + " = " + seat_price + " pesos"
+                                + "\n\tNumber of tickets acquired: " + ticketsNum.getText().toString()
+                                + "\n\tPWD Discount cost = " + discountedCost
+                                + "\n\tTotal cost = " + totalCost
+                                + "\n\n"
+                                + "Click anywhere to close this window");
+                        showPrice.setCancelable(true);
+                        showPrice.show();
+                    }
                 }
-                showPrice.show();
             }
         });
+        }
+        catch (Exception e){
+            Toast.makeText(this, "Exception nangyari", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void writeToSharedPreferences(String name, String sectionSelected) {
