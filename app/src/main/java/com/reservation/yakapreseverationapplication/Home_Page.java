@@ -42,7 +42,7 @@ public class Home_Page extends AppCompatActivity {
 
     //variables
     String ytLink = "https://www.youtube.com/@MygzMolinovlogs";
-    String igLink = "https://www.instagram.com/mygz.molino/";
+    String igLink = "https://www.instagram.com/mygz.molino";
     String fbLink = "https://www.facebook.com/mygz.molinoii";
     int [] imageResources = { R.drawable.mygz, R.drawable.boobsie, R.drawable.ethel,R.drawable.gay, R.drawable.keanna, R.drawable.gabriela,
             R.drawable.jon,  R.drawable.rowel};

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -15,6 +16,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +31,9 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Objects;
 
 public class Final_Page extends AppCompatActivity {
 
@@ -102,54 +107,34 @@ public class Final_Page extends AppCompatActivity {
         saveSS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
+                    View view = getWindow().getDecorView().getRootView();
+                    view.setDrawingCacheEnabled(true);
+                    Bitmap mapa = Bitmap.createBitmap(view.getDrawingCache());
+                    view.setDrawingCacheEnabled(false);
 
-                if (SDK_INT >= Build.VERSION_CODES.R) {
-                    if (Environment.isExternalStorageManager()) {
-                        try{
-                            View view = getWindow().getDecorView().getRootView();
-                            String path = Environment.getExternalStorageDirectory() + "";
-                            File file = new File(path);
+                    ContentValues takenImage = new ContentValues();
+                    takenImage.put(MediaStore.Images.Media.DISPLAY_NAME, get.getStringExtra("name") + " ticket screenshot.png");
+                    takenImage.put(MediaStore.Images.Media.MIME_TYPE, "image/png");
+                    Uri uri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, takenImage);
 
-                            if(!file.exists()){
-                                boolean mkDir = file.mkdir();
-                            }
-
-                            String filePath = path + "/" + get.getStringExtra("name")+ "-ticket screenshot" + ".png";
-                            view.setDrawingCacheEnabled(true);
-                            Bitmap mapa = Bitmap.createBitmap(view.getDrawingCache());
-                            view.setDrawingCacheEnabled(false);
-
-                            File imageUrl = new File(filePath);
-                            FileOutputStream outputStream = new FileOutputStream(imageUrl);
-                            mapa.compress(Bitmap.CompressFormat.PNG, 50, outputStream);
-                            outputStream.flush();
-                            outputStream.close();
-
+                    if (uri != null) {
+                        try (OutputStream outputStream = getContentResolver().openOutputStream(uri)) {
+                            mapa.compress(Bitmap.CompressFormat.PNG, 100, Objects.requireNonNull(outputStream));
                             AlertDialog.Builder fileGood = new AlertDialog.Builder(Final_Page.this);
                             fileGood.setTitle("Screenshot Saved!");
                             fileGood.setMessage("A screenshot of this window has been saved to your device. That will serve as your copy");
                             fileGood.setCancelable(true);
                             fileGood.show();
-                        }
-                        catch (Exception e){
-                            Toast.makeText(Final_Page.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
 
-                    } else {
-                        Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
-                        Uri uri = Uri.fromParts("package", getPackageName(), null);
-                        intent.setData(uri);
-                        startActivity(intent);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
-                } else {
-
-                    //asking for permission to write to storage
-                    ActivityCompat.requestPermissions(Final_Page.this, new String[]{
-                            android.Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE
-                    }, PackageManager.PERMISSION_GRANTED);
                 }
-
-
+                catch (Exception e){
+                    Toast.makeText(Final_Page.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
