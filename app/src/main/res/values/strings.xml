@@ -8,6 +8,6 @@
     <string name="after_purchase_you_will_be_given_a_nqueue_number_and_a_qr_code_for_seat_nnumber_and_purchase_confirmation">After purchase, you will be given a \nqueue number and a QR code for seat\nnumber and purchase confirmation</string>
     <string name="seat_availability_per_tier_may_vary">Seat availability per tier may vary</string>
     <string name="lb_2500">LB 2500</string>
-    <string name="upb_2500">UPB 2500</string>
+    <string name="upb_2500">UPB 2000</string>
     <string name="register">REGISTER</string>
 </resources>
